@@ -16,10 +16,10 @@ export const ContactSection: React.FC = () => {
   const [errors, setErrors] = useState<Partial<ContactFormData>>({});
 
   const inquiryTypes = [
-    { value: 'general', label: 'General Inquiry' },
-    { value: 'booking', label: 'Booking & Shows' },
-    { value: 'press', label: 'Press & Media' },
-    { value: 'merchandise', label: 'Merchandise' },
+    { value: 'general', label: 'Underground Inquiry' },
+    { value: 'booking', label: 'Ritual Booking' },
+    { value: 'press', label: 'Zine/Press' },
+    { value: 'merchandise', label: 'Underground Trade' },
   ];
 
   const validateForm = (): boolean => {
@@ -84,22 +84,21 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-primary-neutral">
+    <section id="contact" className="section-padding bg-bg-secondary">
       <div className="container-metal">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="heading-primary text-5xl md:text-6xl mb-4">Get In Touch</h2>
-          <div className="w-24 h-1 bg-primary-accent mx-auto mb-8" />
-          <p className="text-xl text-primary-gray max-w-3xl mx-auto">
-            Ready to join the darkness? Have questions? Want to book us for your venue? 
-            We're here to listen.
+          <h2 className="heading-primary text-5xl md:text-6xl mb-4 text-accent-primary">Summon the Coven</h2>
+          <div className="w-24 h-1 bg-accent-primary mx-auto mb-8" />
+          <p className="text-xl text-text-primary max-w-3xl mx-auto">
+            Reach out for underground collaborations, ritual bookings, zine interviews, or to trade rare artifacts. All messages are answered by the band directly—no managers, no industry.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div>
-            <h3 className="heading-secondary text-2xl mb-8">Send us a Message</h3>
+            <h3 className="heading-secondary text-2xl mb-8">Send a Message to the Underground</h3>
             
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-900/20 border border-green-700 rounded-metal flex items-center space-x-3">
@@ -188,7 +187,7 @@ export const ContactSection: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`btn-primary w-full flex items-center justify-center space-x-2 ${
+                className={`underground-btn-primary w-full flex items-center justify-center space-x-2 ${
                   isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
@@ -197,7 +196,7 @@ export const ContactSection: React.FC = () => {
                 ) : (
                   <>
                     <Send className="h-5 w-5" />
-                    <span>Send Message</span>
+                    <span>Summon</span>
                   </>
                 )}
               </button>

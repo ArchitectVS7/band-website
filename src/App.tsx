@@ -14,6 +14,7 @@ import { Footer } from './components/Footer';
 import { ShoppingCart } from './components/ShoppingCart';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { AdminPanel } from './components/AdminPanel';
+import { CommunityArchive } from './components/CommunityArchive';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -45,6 +46,7 @@ function App() {
               <TourSection />
               <MerchandiseSection />
               <CommunitySection />
+              <CommunityArchive />
               <ContactSection />
             </main>
 

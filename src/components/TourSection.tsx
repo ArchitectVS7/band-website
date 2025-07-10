@@ -48,10 +48,10 @@ export const TourSection: React.FC = () => {
       <div className="container-metal">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="heading-primary text-5xl md:text-6xl mb-4">Tour Dates</h2>
-          <div className="w-24 h-1 bg-primary-accent mx-auto mb-8" />
-          <p className="text-xl text-primary-gray max-w-3xl mx-auto">
-            Join us live for an unforgettable experience. Feel the power, embrace the darkness.
+          <h2 className="heading-primary text-5xl md:text-6xl mb-4 text-accent-primary">Rituals</h2>
+          <div className="w-24 h-1 bg-accent-primary mx-auto mb-8" />
+          <p className="text-xl text-text-primary max-w-3xl mx-auto">
+            Gather in the shadows. All shows are underground/DIY spaces. No mainstream venues. No compromise.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export const TourSection: React.FC = () => {
                         
                         {/* Event Info */}
                         <div className="flex-1">
-                          <h3 className="heading-secondary text-xl mb-2">{date.venue}</h3>
+                          <h3 className="heading-secondary text-xl mb-2">{date.venue} <span className="text-accent-primary text-sm">(Underground Space)</span></h3>
                           <div className="flex items-center space-x-4 text-primary-gray">
                             <div className="flex items-center space-x-1">
                               <MapPin className="h-4 w-4" />
@@ -118,9 +118,9 @@ export const TourSection: React.FC = () => {
                             href={date.ticketUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-primary flex items-center space-x-2"
+                            className="underground-btn-primary flex items-center space-x-2"
                           >
-                            <span>Get Tickets</span>
+                            <span>Secure Entry</span>
                             <ExternalLink className="h-4 w-4" />
                           </a>
                         )}
@@ -143,19 +143,19 @@ export const TourSection: React.FC = () => {
 
         {/* Tour Newsletter Signup */}
         <div className="mt-16 text-center">
-          <div className="bg-primary-dark rounded-metal p-8 max-w-2xl mx-auto">
-            <h3 className="heading-secondary text-2xl mb-4">Never Miss a Show</h3>
-            <p className="text-primary-gray mb-6">
-              Be the first to know about new tour dates, exclusive presales, and VIP packages.
+          <div className="bg-bg-secondary rounded-metal p-8 max-w-2xl mx-auto">
+            <h3 className="heading-secondary text-2xl mb-4">Never Miss a Ritual</h3>
+            <p className="text-text-primary mb-6">
+              Get notified about underground shows, secret rituals, and exclusive gatherings.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input-metal flex-1"
+                className="underground-input flex-1"
               />
-              <button className="btn-primary">
-                Subscribe
+              <button className="underground-btn-primary">
+                Join the List
               </button>
             </div>
           </div>
