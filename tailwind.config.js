@@ -6,6 +6,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Underground theme colors using CSS custom properties
+        'bg-primary': 'var(--bg-primary)',
+        'text-primary': 'var(--text-primary)',
+        'accent-primary': 'var(--accent-primary)',
+        'bg-secondary': 'var(--bg-secondary)',
+        // Legacy colors for backward compatibility
         primary: {
           accent: '#E63946',
           secondary: '#F1C40F',
@@ -16,6 +22,14 @@ module.exports = {
         }
       },
       fontFamily: {
+        // Underground theme fonts
+        'atmospheric-header': ['Cinzel', 'serif'],
+        'atmospheric-body': ['Inter', 'sans-serif'],
+        'raw-header': ['Creepster', 'cursive'],
+        'raw-body': ['Oswald', 'sans-serif'],
+        'modern-header': ['Orbitron', 'sans-serif'],
+        'modern-body': ['Source Sans Pro', 'sans-serif'],
+        // Legacy fonts
         'bebas': ['Bebas Neue', 'cursive'],
         'inter': ['Inter', 'sans-serif'],
       },

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CartProvider } from './contexts/CartContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
@@ -10,6 +11,7 @@ import { ContactSection } from './components/ContactSection';
 import { CommunitySection } from './components/CommunitySection';
 import { Footer } from './components/Footer';
 import { ShoppingCart } from './components/ShoppingCart';
+import { ThemeSwitcher } from './components/ThemeSwitcher';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -23,29 +25,34 @@ function App() {
   };
 
   return (
-    <CartProvider>
-      <div className="App">
-        {/* Header */}
-        <Header onCartClick={handleCartToggle} />
+    <ThemeProvider>
+      <CartProvider>
+        <div className="App">
+          {/* Theme Switcher */}
+          <ThemeSwitcher />
 
-        {/* Main Content */}
-        <main>
-          <HeroSection />
-          <AboutSection />
-          <MusicSection />
-          <TourSection />
-          <MerchandiseSection />
-          <CommunitySection />
-          <ContactSection />
-        </main>
+          {/* Header */}
+          <Header onCartClick={handleCartToggle} />
 
-        {/* Footer */}
-        <Footer />
+          {/* Main Content */}
+          <main>
+            <HeroSection />
+            <AboutSection />
+            <MusicSection />
+            <TourSection />
+            <MerchandiseSection />
+            <CommunitySection />
+            <ContactSection />
+          </main>
 
-        {/* Shopping Cart */}
-        <ShoppingCart isOpen={isCartOpen} onClose={handleCartClose} />
-      </div>
-    </CartProvider>
+          {/* Footer */}
+          <Footer />
+
+          {/* Shopping Cart */}
+          <ShoppingCart isOpen={isCartOpen} onClose={handleCartClose} />
+        </div>
+      </CartProvider>
+    </ThemeProvider>
   );
 }
 
