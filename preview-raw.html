@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underground Metal Platform - Raw Theme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: #1a1a1a;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Creepster', cursive;
+            font-size: 1.8rem;
+            color: #b8860b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-family: 'Creepster', cursive;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #b8860b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23b8860b" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+        
+        .hero-content h1 {
+            font-family: 'Creepster', cursive;
+            font-size: 4.5rem;
+            color: #b8860b;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #d4d4d4;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            background: #b8860b;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            border: none;
+            font-family: 'Creepster', cursive;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-button:hover {
+            background: #8b6914;
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+        }
+        
+        /* Theme Switcher */
+        .theme-switcher {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: rgba(26, 26, 26, 0.8);
+            padding: 1rem;
+            border-radius: 8px;
+            z-index: 1001;
+            border: 1px solid #b8860b;
+        }
+        
+        .theme-switcher h3 {
+            font-family: 'Creepster', cursive;
+            font-size: 1rem;
+            color: #b8860b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .theme-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .theme-btn {
+            background: transparent;
+            color: #f5f5f5;
+            border: 1px solid #b8860b;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-btn.active {
+            background: #b8860b;
+            color: #1a1a1a;
+        }
+        
+        .theme-btn:hover {
+            background: #8b6914;
+        }
+        
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(26, 26, 26, 0.9);
+            padding: 1rem;
+            border-radius: 8px;
+            z-index: 1001;
+            border: 1px solid #b8860b;
+        }
+        
+        .admin-panel h3 {
+            font-family: 'Creepster', cursive;
+            font-size: 1rem;
+            color: #b8860b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .admin-btn {
+            background: #b8860b;
+            color: #1a1a1a;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .admin-btn:hover {
+            background: #8b6914;
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #2d2d2d;
+        }
+        
+        .section h2 {
+            font-family: 'Creepster', cursive;
+            font-size: 3rem;
+            color: #b8860b;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .section p {
+            font-size: 1.2rem;
+            color: #d4d4d4;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        /* Community Archive */
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .archive-item {
+            background: rgba(45, 45, 45, 0.8);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #b8860b;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+        
+        .archive-item h3 {
+            font-family: 'Creepster', cursive;
+            color: #b8860b;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .archive-item p {
+            color: #d4d4d4;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .theme-switcher {
+                top: 80px;
+                right: 10px;
+            }
+            
+            .admin-panel {
+                bottom: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">CRIMSON THRONE</div>
+            <ul class="nav-links">
+                <li><a href="#coven">COVEN</a></li>
+                <li><a href="#sounds">SOUNDS</a></li>
+                <li><a href="#rituals">RITUALS</a></li>
+                <li><a href="#archive">ARCHIVE</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CRIMSON THRONE</h1>
+            <p>Forged in the Depths of Underground Metal</p>
+            <button class="cta-button">Enter the Ritual</button>
+        </div>
+    </section>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <h3>THEMES</h3>
+        <div class="theme-buttons">
+            <button class="theme-btn">Atmospheric</button>
+            <button class="theme-btn active">Raw</button>
+            <button class="theme-btn">Modern</button>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel">
+        <h3>ADMIN</h3>
+        <button class="admin-btn">Login</button>
+        <button class="admin-btn">Edit Mode</button>
+        <button class="admin-btn">Theme</button>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="container">
+        <section class="section">
+            <h2>The Underground Archive</h2>
+            <p>Preserving rare content from our community - demos, photos, flyers, and recordings shared by our underground network.</p>
+            
+            <div class="archive-grid">
+                <div class="archive-item">
+                    <h3>Ritual Demo 2023</h3>
+                    <p>Raw, unpolished recordings capturing the essence of early ritualistic sound. Contributor: Shadow</p>
+                </div>
+                <div class="archive-item">
+                    <h3>Underground Show Flyer</h3>
+                    <p>Hand-drawn flyer from the depths of the underground scene. Contributor: Void</p>
+                </div>
+                <div class="archive-item">
+                    <h3>Live Ritual Photo</h3>
+                    <p>Captured during our most intense underground performance. Contributor: Abyss</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Theme switching functionality
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
