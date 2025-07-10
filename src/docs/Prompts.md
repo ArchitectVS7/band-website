@@ -153,6 +153,15 @@ Execute:
 Focus on ensuring the migration preserves all existing content while transforming it to fit the underground aesthetic. Test the complete user journey from admin login through content editing to community archive interaction.
 
 Mark all testing items in the Action Plan and prepare a comprehensive pre-deployment report.
+
+Review the completed steps for this phase of the Action Plan
+Verify these steps are complete. Take any corrective action needed including:
+-Completing the step
+-Marking yellow for human actions required
+-Adding comments for human actions required
+Then review the code for functionality. Think about what it does, what components interact with each other, how data flows. Correct any errors you find Run type and lint tests
+Output a report of all findings in the docs folder as "phase 6 code audit"
+commit and push to dev branch, create PR
 ```
 
 ---
@@ -185,6 +194,15 @@ Prepare comprehensive documentation for the completed conversion including:
 Update the final Action Plan status and provide a complete project summary with any outstanding items for human review.
 
 This is the final phase - ensure everything is production-ready and the underground metal community will be proud of this authentic platform.
+
+Review the completed steps for this phase of the Action Plan
+Verify these steps are complete. Take any corrective action needed including:
+-Completing the step
+-Marking yellow for human actions required
+-Adding comments for human actions required
+Then review the code for functionality. Think about what it does, what components interact with each other, how data flows. Correct any errors you find Run type and lint tests
+Output a report of all findings in the docs folder as "phase 7 code audit"
+commit and push to dev branch, create PR
 ```
 
 ---
