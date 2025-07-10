@@ -218,9 +218,8 @@ export const CommunitySection: React.FC = () => {
               <h3 className="heading-secondary text-xl mb-4">Join the Community</h3>
               
               <div className="space-y-3">
-                <a
-                  href="#"
-                  className="flex items-center space-x-3 p-3 bg-primary-dark rounded-metal hover:bg-primary-accent/20 transition-colors group"
+                <button
+                  className="flex items-center space-x-3 p-3 bg-primary-dark rounded-metal hover:bg-primary-accent/20 transition-colors group w-full text-left"
                 >
                   <div className="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center">
                     <MessageSquare className="h-4 w-4 text-white" />
@@ -230,11 +229,10 @@ export const CommunitySection: React.FC = () => {
                     <p className="text-primary-gray text-xs">1,247 members online</p>
                   </div>
                   <ExternalLink className="h-4 w-4 text-primary-gray group-hover:text-primary-accent" />
-                </a>
+                </button>
                 
-                <a
-                  href="#"
-                  className="flex items-center space-x-3 p-3 bg-primary-dark rounded-metal hover:bg-primary-accent/20 transition-colors group"
+                <button
+                  className="flex items-center space-x-3 p-3 bg-primary-dark rounded-metal hover:bg-primary-accent/20 transition-colors group w-full text-left"
                 >
                   <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
                     <Heart className="h-4 w-4 text-white" />
@@ -244,7 +242,7 @@ export const CommunitySection: React.FC = () => {
                     <p className="text-primary-gray text-xs">Exclusive perks & content</p>
                   </div>
                   <ExternalLink className="h-4 w-4 text-primary-gray group-hover:text-primary-accent" />
-                </a>
+                </button>
               </div>
             </div>
           </div>
