@@ -3,7 +3,6 @@ import { Play, ExternalLink, Clock, Disc } from 'lucide-react';
 import { Release } from '../types';
 import { mockApi } from '../utils/mockData';
 import { LoadingSpinner } from './LoadingSpinner';
-import { CommunityArchive } from './CommunityArchive';
 
 export const MusicSection: React.FC = () => {
   const [releases, setReleases] = useState<Release[]>([]);
