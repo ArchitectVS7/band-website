@@ -34,18 +34,101 @@
     background: var(--accent-primary, #8B0000);
     opacity: 0.8;
   }
+
+  /* Underground animations */
+  @keyframes underground-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes underground-slide-up {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes underground-fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes underground-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px var(--accent-primary);
+    }
+    50% {
+      box-shadow: 0 0 20px var(--accent-primary), 0 0 30px var(--accent-primary);
+    }
+  }
 }
 
 @layer components {
   /* Underground theme buttons */
   .underground-btn-primary {
-    @apply bg-accent-primary text-text-primary px-6 py-3 rounded-metal font-medium hover:opacity-80 transition-all duration-300;
+    @apply bg-accent-primary text-text-primary px-6 py-3 rounded-metal font-medium transition-all duration-300;
     font-family: var(--body-font, 'Inter'), sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .underground-btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .underground-btn-primary:active {
+    transform: translateY(0);
   }
   
   .underground-btn-secondary {
-    @apply bg-transparent border-2 border-accent-primary text-accent-primary px-6 py-3 rounded-metal font-medium hover:bg-accent-primary hover:text-text-primary transition-all duration-300;
+    @apply bg-transparent border-2 border-accent-primary text-accent-primary px-6 py-3 rounded-metal font-medium transition-all duration-300;
     font-family: var(--body-font, 'Inter'), sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .underground-btn-secondary:hover {
+    @apply bg-accent-primary text-text-primary;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .underground-btn-secondary:active {
+    transform: translateY(0);
+  }
+
+  .underground-btn-danger {
+    @apply bg-red-800 text-text-primary px-6 py-3 rounded-metal font-medium transition-all duration-300;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+  }
+  
+  .underground-btn-danger:hover {
+    @apply bg-red-700;
+    transform: translateY(-1px);
+  }
+
+  .underground-btn-ghost {
+    @apply bg-transparent text-accent-primary px-6 py-3 rounded-metal font-medium transition-all duration-300;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+  }
+  
+  .underground-btn-ghost:hover {
+    @apply bg-accent-primary bg-opacity-10;
+    transform: translateY(-1px);
   }
   
   /* Underground theme typography */
@@ -53,6 +136,7 @@
     @apply text-text-primary uppercase tracking-wider;
     font-family: var(--header-font, 'Cinzel'), serif;
     font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
   
   .underground-heading-secondary {
@@ -63,24 +147,240 @@
   .underground-text-body {
     @apply text-text-primary opacity-90;
     font-family: var(--body-font, 'Inter'), sans-serif;
+    line-height: 1.6;
+  }
+
+  .underground-text-caption {
+    @apply text-text-primary opacity-70 text-sm;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+  }
+
+  .underground-text-accent {
+    @apply text-accent-primary font-medium;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+  }
+
+  /* Theme-specific typography utilities */
+  .underground-font-atmospheric-header {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+  }
+
+  .underground-font-atmospheric-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+
+  .underground-font-raw-header {
+    font-family: 'Creepster', cursive;
+    font-weight: 400;
+  }
+
+  .underground-font-raw-body {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+  }
+
+  .underground-font-modern-header {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+  }
+
+  .underground-font-modern-body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
   }
   
   /* Underground theme components */
   .underground-card {
     @apply bg-bg-secondary border border-accent-primary rounded-metal shadow-lg;
+    transition: all 0.3s ease;
+  }
+  
+  .underground-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .underground-card-glow {
+    @apply bg-bg-secondary border border-accent-primary rounded-metal shadow-lg;
+    animation: underground-glow 2s ease-in-out infinite;
   }
   
   .underground-input {
-    @apply bg-bg-secondary border border-accent-primary rounded-metal px-4 py-2 text-text-primary placeholder-text-primary placeholder-opacity-50 focus:border-accent-primary focus:outline-none;
+    @apply bg-bg-secondary border border-accent-primary rounded-metal px-4 py-2 text-text-primary placeholder-text-primary placeholder-opacity-50 focus:border-accent-primary focus:outline-none transition-all duration-300;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+  }
+  
+  .underground-input:focus {
+    box-shadow: 0 0 0 2px var(--accent-primary);
+    opacity: 0.8;
+  }
+
+  .underground-textarea {
+    @apply bg-bg-secondary border border-accent-primary rounded-metal px-4 py-2 text-text-primary placeholder-text-primary placeholder-opacity-50 focus:border-accent-primary focus:outline-none transition-all duration-300 resize-none;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+    min-height: 100px;
+  }
+
+  .underground-select {
+    @apply bg-bg-secondary border border-accent-primary rounded-metal px-4 py-2 text-text-primary focus:border-accent-primary focus:outline-none transition-all duration-300;
     font-family: var(--body-font, 'Inter'), sans-serif;
   }
   
   .underground-section {
     @apply py-16 px-4 sm:px-6 lg:px-8;
+    animation: underground-fade-in 0.6s ease-out;
   }
   
   .underground-container {
     @apply max-w-7xl mx-auto;
+  }
+
+  .underground-section-slide {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+    animation: underground-slide-up 0.8s ease-out;
+  }
+
+  /* Underground navigation */
+  .underground-nav-link {
+    @apply text-text-primary hover:text-accent-primary transition-colors duration-300 font-medium;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+    position: relative;
+  }
+
+  .underground-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: width 0.3s ease;
+  }
+
+  .underground-nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Underground modal */
+  .underground-modal {
+    @apply bg-bg-secondary border border-accent-primary rounded-metal shadow-2xl;
+    animation: underground-slide-up 0.3s ease-out;
+  }
+
+  .underground-modal-overlay {
+    @apply bg-black bg-opacity-75;
+    animation: underground-fade-in 0.3s ease-out;
+  }
+
+  /* Underground form elements */
+  .underground-form-group {
+    @apply mb-6;
+  }
+
+  .underground-form-label {
+    @apply block text-text-primary font-medium mb-2;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+  }
+
+  .underground-form-error {
+    @apply text-red-400 text-sm mt-1;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+  }
+
+  /* Underground list styles */
+  .underground-list {
+    @apply space-y-2;
+  }
+
+  .underground-list-item {
+    @apply flex items-center space-x-3 p-3 bg-bg-secondary border border-accent-primary rounded-metal;
+    transition: all 0.3s ease;
+  }
+
+  .underground-list-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Underground badge */
+  .underground-badge {
+    @apply inline-block px-3 py-1 text-xs font-medium rounded-metal;
+    font-family: var(--body-font, 'Inter'), sans-serif;
+  }
+
+  .underground-badge-primary {
+    @apply bg-accent-primary text-text-primary;
+  }
+
+  .underground-badge-secondary {
+    @apply bg-bg-secondary border border-accent-primary text-accent-primary;
+  }
+
+  .underground-badge-success {
+    @apply bg-green-800 text-text-primary;
+  }
+
+  .underground-badge-warning {
+    @apply bg-yellow-800 text-text-primary;
+  }
+
+  .underground-badge-danger {
+    @apply bg-red-800 text-text-primary;
+  }
+
+  /* Underground divider */
+  .underground-divider {
+    @apply border-t border-accent-primary my-8;
+    opacity: 0.3;
+  }
+
+  /* Underground loading states */
+  .underground-loading {
+    @apply animate-pulse bg-bg-secondary rounded-metal;
+  }
+
+  .underground-skeleton {
+    @apply bg-bg-secondary rounded-metal animate-pulse;
+    height: 1rem;
+  }
+
+  /* Underground animations */
+  .underground-animate-pulse {
+    animation: underground-pulse 2s ease-in-out infinite;
+  }
+
+  .underground-animate-slide-up {
+    animation: underground-slide-up 0.6s ease-out;
+  }
+
+  .underground-animate-fade-in {
+    animation: underground-fade-in 0.4s ease-out;
+  }
+
+  .underground-animate-glow {
+    animation: underground-glow 2s ease-in-out infinite;
+  }
+
+  /* Underground responsive utilities */
+  .underground-responsive-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+
+  .underground-responsive-heading {
+    @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl;
+  }
+
+  /* Underground focus states */
+  .underground-focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-opacity-50;
+  }
+
+  /* Underground disabled states */
+  .underground-disabled {
+    @apply opacity-50 cursor-not-allowed;
   }
 
   /* Legacy component styles for backward compatibility */
