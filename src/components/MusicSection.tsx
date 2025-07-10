@@ -3,6 +3,7 @@ import { Play, ExternalLink, Clock, Disc } from 'lucide-react';
 import { Release } from '../types';
 import { mockApi } from '../utils/mockData';
 import { LoadingSpinner } from './LoadingSpinner';
+import { CommunityArchive } from './CommunityArchive';
 
 export const MusicSection: React.FC = () => {
   const [releases, setReleases] = useState<Release[]>([]);
@@ -95,25 +96,27 @@ export const MusicSection: React.FC = () => {
                 {selectedRelease.type.toUpperCase()} • {formatDate(selectedRelease.releaseDate)}
               </p>
               
-              {/* Streaming Links */}
+              {/* Streaming Links - Bandcamp First */}
               <div className="space-y-3">
                 <h4 className="heading-secondary text-xl mb-4">Listen Now</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {Object.entries(selectedRelease.streamingLinks).map(([platform, url]) => (
-                    <a
-                      key={platform}
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-3 bg-primary-neutral px-4 py-3 rounded-metal hover:bg-primary-accent transition-colors group"
-                    >
-                      <Play className="h-4 w-4 text-primary-gray group-hover:text-primary-light" />
-                      <span className="text-primary-light font-inter font-medium capitalize flex-1">
-                        {platform}
-                      </span>
-                      <ExternalLink className="h-4 w-4 text-primary-gray group-hover:text-primary-light" />
-                    </a>
-                  ))}
+                  {Object.entries(selectedRelease.streamingLinks)
+                    .sort(([a], [b]) => (a.toLowerCase() === 'bandcamp' ? -1 : b.toLowerCase() === 'bandcamp' ? 1 : 0))
+                    .map(([platform, url]) => (
+                      <a
+                        key={platform}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-3 bg-bg-secondary px-4 py-3 rounded-metal hover:bg-accent-primary transition-colors group"
+                      >
+                        <Play className="h-4 w-4 text-accent-primary group-hover:text-text-primary" />
+                        <span className="text-text-primary font-inter font-medium capitalize flex-1">
+                          {platform}
+                        </span>
+                        <ExternalLink className="h-4 w-4 text-accent-primary group-hover:text-text-primary" />
+                      </a>
+                    ))}
                 </div>
               </div>
             </div>
@@ -152,6 +155,15 @@ export const MusicSection: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Underground Demo Archive */}
+        <div className="mt-20">
+          <h3 className="heading-secondary text-2xl mb-4 text-accent-primary">Demo Archive</h3>
+          <p className="text-text-primary mb-6 max-w-2xl mx-auto">
+            Explore rare demos and underground recordings contributed by the community. Want to add your own? Visit the Community Archive below!
+          </p>
+          <a href="#community-archive" className="underground-btn-secondary">Go to Community Archive</a>
+        </div>
 
         {/* Featured Release CTA */}
         <div className="text-center mt-16">
