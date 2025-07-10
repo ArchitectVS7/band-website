@@ -75,22 +75,22 @@ export const HeroSection: React.FC = () => {
           />
         </div>
 
-        {/* CTA Buttons */}
+        {/* Underground CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
           <button
             onClick={() => scrollToSection('#music')}
-            className="btn-primary flex items-center space-x-2 text-lg px-8 py-4"
+            className="underground-btn-primary flex items-center space-x-2 text-lg px-8 py-4"
           >
             <Play className="h-6 w-6" />
-            <span>Listen Now</span>
+            <span>ENTER THE VOID</span>
           </button>
           
           <button
             onClick={() => scrollToSection('#merch')}
-            className="btn-secondary flex items-center space-x-2 text-lg px-8 py-4"
+            className="underground-btn-secondary flex items-center space-x-2 text-lg px-8 py-4"
           >
             <ShoppingBag className="h-6 w-6" />
-            <span>Shop Merch</span>
+            <span>JOIN THE COVEN</span>
           </button>
         </div>
 
