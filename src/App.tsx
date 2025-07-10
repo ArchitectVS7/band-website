@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CartProvider } from './contexts/CartContext';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { AdminProvider } from './contexts/AdminContext';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
@@ -12,6 +13,7 @@ import { CommunitySection } from './components/CommunitySection';
 import { Footer } from './components/Footer';
 import { ShoppingCart } from './components/ShoppingCart';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
+import { AdminPanel } from './components/AdminPanel';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -26,32 +28,37 @@ function App() {
 
   return (
     <ThemeProvider>
-      <CartProvider>
-        <div className="App">
-          {/* Theme Switcher */}
-          <ThemeSwitcher />
+      <AdminProvider>
+        <CartProvider>
+          <div className="App">
+            {/* Theme Switcher */}
+            <ThemeSwitcher />
 
-          {/* Header */}
-          <Header onCartClick={handleCartToggle} />
+            {/* Header */}
+            <Header onCartClick={handleCartToggle} />
 
-          {/* Main Content */}
-          <main>
-            <HeroSection />
-            <AboutSection />
-            <MusicSection />
-            <TourSection />
-            <MerchandiseSection />
-            <CommunitySection />
-            <ContactSection />
-          </main>
+            {/* Main Content */}
+            <main>
+              <HeroSection />
+              <AboutSection />
+              <MusicSection />
+              <TourSection />
+              <MerchandiseSection />
+              <CommunitySection />
+              <ContactSection />
+            </main>
 
-          {/* Footer */}
-          <Footer />
+            {/* Footer */}
+            <Footer />
 
-          {/* Shopping Cart */}
-          <ShoppingCart isOpen={isCartOpen} onClose={handleCartClose} />
-        </div>
-      </CartProvider>
+            {/* Shopping Cart */}
+            <ShoppingCart isOpen={isCartOpen} onClose={handleCartClose} />
+
+            {/* Admin Panel */}
+            <AdminPanel />
+          </div>
+        </CartProvider>
+      </AdminProvider>
     </ThemeProvider>
   );
 }

@@ -1,7 +1,11 @@
 import React from 'react';
 import { Play, Music, ShoppingBag } from 'lucide-react';
+import { EditableText } from './EditableText';
+import { useTheme } from '../contexts/ThemeContext';
 
 export const HeroSection: React.FC = () => {
+  const { currentTheme } = useTheme();
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.querySelector(sectionId);
     if (element) {
@@ -28,14 +32,28 @@ export const HeroSection: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 container-metal px-4 text-center">
         {/* Band Name */}
-        <h1 className="heading-primary text-6xl md:text-8xl lg:text-9xl mb-6 animate-fade-in">
-          Crimson Throne
-        </h1>
+        <EditableText
+          id="hero-band-name"
+          defaultContent="Crimson Throne"
+          className={`heading-primary text-6xl md:text-8xl lg:text-9xl mb-6 animate-fade-in ${
+            currentTheme.variant === 'atmospheric' ? 'font-atmospheric-header' :
+            currentTheme.variant === 'raw' ? 'font-raw-header' :
+            'font-modern-header'
+          }`}
+          tag="h1"
+        />
         
         {/* Tagline */}
-        <p className="text-xl md:text-2xl text-primary-gray mb-8 max-w-2xl mx-auto animate-fade-in">
-          Forged in darkness, tempered by fire. Experience the raw power of modern metal.
-        </p>
+        <EditableText
+          id="hero-tagline"
+          defaultContent="Forged in darkness, tempered by fire. Experience the raw power of modern metal."
+          className={`text-xl md:text-2xl text-primary-gray mb-8 max-w-2xl mx-auto animate-fade-in ${
+            currentTheme.variant === 'atmospheric' ? 'font-atmospheric-body' :
+            currentTheme.variant === 'raw' ? 'font-raw-body' :
+            'font-modern-body'
+          }`}
+          tag="p"
+        />
 
         {/* Latest Release Banner */}
         <div className="mb-12 animate-fade-in">
@@ -43,10 +61,18 @@ export const HeroSection: React.FC = () => {
             <Music className="h-5 w-5 text-primary-accent" />
             <span className="text-primary-light font-inter font-medium">New Album Out Now</span>
           </div>
-          <h2 className="heading-secondary text-3xl md:text-4xl text-primary-secondary mb-2">
-            "Eternal Darkness"
-          </h2>
-          <p className="text-primary-gray">Our most brutal and melodic work yet</p>
+          <EditableText
+            id="hero-album-title"
+            defaultContent="Eternal Darkness"
+            className="heading-secondary text-3xl md:text-4xl text-primary-secondary mb-2"
+            tag="h2"
+          />
+          <EditableText
+            id="hero-album-description"
+            defaultContent="Our most brutal and melodic work yet"
+            className="text-primary-gray"
+            tag="p"
+          />
         </div>
 
         {/* CTA Buttons */}
