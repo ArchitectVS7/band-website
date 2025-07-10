@@ -38,7 +38,7 @@ docs\SRD-new-site.md (full SRD for the final version of the site - USE SECTIONS 
 
 Implement the complete admin content management system as specified in Phase 2 of the Action Plan.
 
-Follow the "Admin Content Management System" section of the SRD and the detailed component specifications in Phase 2 of the Conversion Plan. Build the AdminContext system, EditableText component, and AdminPanel interface with full inline editing capabilities.
+Follow the "Admin Content Management System" section of the SRD and the detailed component specifications in Phase 2 of the Conversion Plan. Build the AdminContext system, EditableText component, and AdminPanel interface with full inline editing capabilities. 
 
 Key deliverables:
 - AdminContext.tsx with authentication and content management
